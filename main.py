@@ -150,8 +150,9 @@ def format_message(df):
 # list of stock tickers
 url = "https://raw.githubusercontent.com/rreichel3/US-Stock-Symbols/main/all/all_tickers.txt"
 tickers = pd.read_csv(url, header=None)[0].tolist()
+print(f"✅ ดึงรายชื่อหุ้นมาได้ทั้งหมด {len(tickers)} ตัว")
 
-final_stocks = run_ultimate_minervini_scanner(tickers[:500])
+final_stocks = run_ultimate_minervini_scanner(tickers)
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
